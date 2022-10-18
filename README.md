@@ -110,6 +110,15 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
 
 2. Install the MPN executor (`zoro`)
 
+   Make sure you have your GPU drivers installed. You also have to install `ocl-icd-opencl-dev`! ***(Currently, only NVIDIA GPUs are supported!)***
+
+
+   ```
+   apt install ocl-icd-opencl-dev
+   ```
+
+   Then:
+
    ```
    git clone https://github.com/zeeka-network/zoro
    cd zoro
