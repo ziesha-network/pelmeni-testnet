@@ -44,7 +44,14 @@ want to mine Zeeka, you will need to install ![zoro](https://github.com/zeeka-ne
     ```
 
 Now if you want to join the `chaos` testnet, you first have to initialize your
-node by running:
+node. If you have already initialized bazuka for the Debug Testnet, you first need
+to remove your previous initialization by running:
+
+```sh
+rm ~/.bazuka.yaml
+```
+
+Then initialize:
 
 ```sh
 bazuka init --seed [your seed phrase] --network chaos --node 127.0.0.1:8765
@@ -146,7 +153,7 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    ```
 
    **Note:** You can switch to CPU by removing the `--gpu` flag, but your chances of mining a block
-   will be very with a CPU executor!
+   will be very little with a CPU executor!
 
    (Note: The seed phrase for the executor account needs to be different from the
    seed you use for your node! The transaction fees of the Zero transactions processed
