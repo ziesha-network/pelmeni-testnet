@@ -83,9 +83,6 @@ transaction slots per update.
     <img width="400" src="https://user-images.githubusercontent.com/4275654/188954000-450b32ad-c5e8-4714-9664-3afa40400508.png" alt="Deposit/Withdraw/Rsend/Zsend">
 </p>
 
-People who want to transfer their Zeeka tokens cheaply, would need to deposit
-their funds to MPN through the `deposit` command.
-
 ### How to mine ℤeeka?
 
 In order to be a miner, besides working on a PoW puzzle, you will also need to
@@ -140,16 +137,20 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1iVD2bpywWGHLB4cgasuhTEZwXQoGa2bj' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1iVD2bpywWGHLB4cgasuhTEZwXQoGa2bj" -O update_params.dat && rm -rf /tmp/cookies.txt
    ```
 
-4. Run `zoro` beside your node
+4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
 
    ```sh
    zoro --node 127.0.0.1:8765 --seed [seed phrase for the executor account] --network chaos \
      --update-circuit-params [path to update_params.dat] --payment-circuit-params [path to payment_params.dat] \
-     --db [absolute path to ~/.bazuka-chaos]
+     --db $HOME/.bazuka-chaos --gpu
    ```
 
+   **Note:** You can switch to CPU by removing the `--gpu` flag, but your chances of mining a block
+   will be very with a CPU executor!
+
    (Note: The seed phrase for the executor account needs to be different from the
-   seed you use for your node!)
+   seed you use for your node! The transaction fees of the Zero transactions processed
+   by your executor will go to this account)
 
 5. After a new block is generated, the `uzi-miner` should start working on the PoW
   puzzle, so you will also need to have `uzi-miner` running on your system:
