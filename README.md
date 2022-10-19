@@ -66,7 +66,9 @@ Run your node:
 
 ```sh
 bazuka node --listen 0.0.0.0:8765 --external [your external ip]:8765 \
-  --network chaos --db ~/.bazuka-chaos --bootstrap [bootstrap node 1] --bootstrap [bootstrap node 2] ...
+  --network chaos --db ~/.bazuka-chaos \
+  --bootstrap [bootstrap node 1] --bootstrap [bootstrap node 2] \
+  --discord-handle [your username on discord server]
 ```
 
 You can use the nodes introduced by the community as your `--bootstrap` nodes.
@@ -74,9 +76,9 @@ You either have to run your node on a machine with a static IP, or configure a N
 Virtual Server in order to expose your node on a public IP. Specify your public IP
 through the `--external` option.
 
-Highly recommended to also provide your Discord handle through the
-`--discord-handle` flag. By providing your handle, you will leave our bots a
-way to contact you regarding the problems you may have in your node and its status.
+**IMPORTANT:** You are required to provide your Discord handle through the
+`--discord-handle` flag. By providing your handle, we will be able to authenticate
+your node, as a part of rewarding process.
 
 ### What is the Main Payment Network?
 
