@@ -149,7 +149,7 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    ```
 
    ```
-   wget https://api.rues.info/payment-new.dat -O update_params.dat
+   wget http://46.101.183.146/update_params.dat -O update_params.dat
    ```
 
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
