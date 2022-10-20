@@ -22,9 +22,15 @@ want to mine Zeeka, you will need to install ![zoro](https://github.com/zeeka-ne
 
  * Prepare a Linux machine.
  * Make sure you have installed `libssl-dev` and `cmake` packages.
+
+    ```
+    sudo apt-get update && sudo apt-get upgrade
+    ```
+
     ```
     sudo apt install -y build-essential libssl-dev cmake
     ```
+
  * Install the Rust toolchain (https://rustup.rs/)
     ```
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -139,11 +145,11 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    Or if you want to download them through command-line:
 
    ```
-   wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1slabmFFr0Ct6fef09GOGHGqxYwB7YUMG' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1slabmFFr0Ct6fef09GOGHGqxYwB7YUMG" -O payment_params.dat && rm -rf /tmp/cookies.txt
+   wget http://46.101.183.146/payment_params.dat -O payment_params.dat
    ```
 
    ```
-   wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1iVD2bpywWGHLB4cgasuhTEZwXQoGa2bj' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1iVD2bpywWGHLB4cgasuhTEZwXQoGa2bj" -O update_params.dat && rm -rf /tmp/cookies.txt
+   wget http://46.101.183.146/update_params.dat -O update_params.dat
    ```
 
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
