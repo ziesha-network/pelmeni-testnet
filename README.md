@@ -22,6 +22,10 @@ want to mine Zeeka, you will need to install ![zoro](https://github.com/zeeka-ne
 
  * Prepare a Linux machine.
  * Make sure you have installed `libssl-dev` and `cmake` packages.
+    
+    ```
+    sudo su
+    ```
 
     ```
     sudo apt-get update && sudo apt-get upgrade
@@ -71,10 +75,7 @@ The longer the seed is, the safer. We suggest a seed string of at least 80 rando
 Run your node:
 
 ```sh
-bazuka node --listen 0.0.0.0:8765 --external [your external ip]:8765 \
-  --network chaos --db ~/.bazuka-chaos \
-  --bootstrap [bootstrap node 1] --bootstrap [bootstrap node 2] \
-  --discord-handle [your username on discord server]
+bazuka node --listen 0.0.0.0:8765 --external IP ADDRESS:8765  --network chaos --db ~/.bazuka-chaos --bootstrap 144.91.101.166:8765 --bootstrap 45.67.228.84:8765 --bootstrap 152.228.155.120:8765 --bootstrap 80.87.202.42:8765 --bootstrap 148.251.1.124:8765 \ --discord-handle "Rues#9144"
 ```
 
 You can use the nodes introduced by the community as your `--bootstrap` nodes.
