@@ -145,11 +145,8 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    Or if you want to download them through command-line:
 
    ```
-   wget http://46.101.183.146/payment_params.dat -O payment_params.dat
-   ```
-
-   ```
-   wget http://46.101.183.146/update_params.dat -O update_params.dat
+   wget https://api.rues.info/payment_params.dat -O payment_params.dat
+   wget https://api.rues.info/update_params.dat -O update_params.dat
    ```
 
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
