@@ -108,6 +108,8 @@ transaction slots per update.
 
 ### Mine Ziesha (In a mining pool!)
 
+(**NOTE:** If you want to build a mining pool, follow the guide here: https://github.com/ziesha-network/uzi-pool)
+
 You need to follow the steps:
 
  1. Find out your wallet-address by running `bazuka wallet`.
