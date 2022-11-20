@@ -87,7 +87,7 @@ bazuka init --network groth --bootstrap 65.108.193.133:8765
 After initializing your node you can run it through:
 
 ```sh
-bazuka node start --discord_handle "YOUR DISCORD HANDLE"
+bazuka node start --discord-handle "YOUR DISCORD HANDLE"
 ```
 
 **IMPORTANT:** You are required to provide your Discord handle through the
