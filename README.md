@@ -177,9 +177,9 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
 
    ```sh
-   zoro --node 127.0.0.1:8765 --seed [seed phrase for the executor account] --network groth \
-     --update-circuit-params [path to update.dat] --deposit-circuit-params [path to deposit.dat] \
-     --withdraw-circuit-params [path to withdraw.dat] --db $HOME/.bazuka --gpu
+   zoro --node 127.0.0.1:8765 --seed "SEED PHRASE FOR THE EXECUTOR ACCOUNT" --network groth \
+     --update-circuit-params update.dat --deposit-circuit-params deposit.dat \
+     --withdraw-circuit-params withdraw.dat --db $HOME/.bazuka --gpu
    ```
 
    **Note:** You can switch to CPU by removing the `--gpu` flag, but your chances of mining a block
