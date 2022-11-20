@@ -178,7 +178,7 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
 
    ```sh
    zoro --node 127.0.0.1:8765 --seed [seed phrase for the executor account] --network groth \
-     --update-circuit-params [path to update_params.dat] --deposit-circuit-params [path to deposit.dat] \
+     --update-circuit-params [path to update.dat] --deposit-circuit-params [path to deposit.dat] \
      --withdraw-circuit-params [path to withdraw.dat] --db $HOME/.bazuka --gpu
    ```
 
