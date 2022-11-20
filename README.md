@@ -1,22 +1,20 @@
-# ℤ - The Chaos Testnet!
-
-The time has come! Zeeka's very first incentivized testnet is scheduled to start
-on 9:30AM UTC 20th October!
+# ℤ - The Groth Testnet!
 
 ### Rules
 
  - Participants are required to keep themselves updated regarding the announcements published on our Discord and Twitter.
- - You have to updat your node/executor/miner software when asked. Outdated miners/nodes will not receive their rewards.
- - In order to control the height progress of the testnet, we have put a hard-coded height limit on our software. The height limit is currently set to: **5000** blocks.
+ - You have to update your node software when asked. Outdated nodes will not receive their rewards.
+ - In order to control the height progress of the testnet, we have put a hard-coded height limit on our software. The height limit is currently set to: **43200** blocks (About one month).
  - During the testnet, we may be required to resync our nodes or restart building blocks from height 0. Do not panic! We will keep track of all participants' contribution even after fresh starts!
 
 ### How to run a Bazuka node?
 
-If you only want to run a Zeeka node and do not want to execute Zero Contract or
-mine Zeeka, you will only need to install `bazuka` (This repo). In case you also
-want to mine Zeeka, you will need to install ![zoro](https://github.com/zeeka-network/zoro)
-(The Main Payment Network executor) and also the ![uzi-miner](https://github.com/zeeka-network/uzi-miner)
-(A RandomX CPU miner).
+If you only want to run a Ziesha node and do not want to execute Zero Contract or
+mine Ziesha, you will only need to install ![zoro](https://github.com/ziesha-network/bazuka). In case you also
+want to mine Ziesha, there are two roads:
+
+ 1. Mine as a solo-miner: You will need to install ![zoro](https://github.com/ziesha-network/zoro) (The Main Payment Network executor) and also the ![uzi-miner](https://github.com/ziesha-network/uzi-miner) (A RandomX CPU miner).
+ 2. Mine in a mining pool: You will only need to install ![uzi-miner](https://github.com/ziesha-network/uzi-miner)
 
 **How to install `bazuka`?**
 
@@ -37,7 +35,7 @@ want to mine Zeeka, you will need to install ![zoro](https://github.com/zeeka-ne
     ```
  * Clone the `bazuka` repo:
     ```
-    git clone https://github.com/zeeka-network/bazuka
+    git clone https://github.com/ziesha-network/bazuka
     ```
  * ***Warning:*** Make sure Rust binaries are present in your PATH before compiling:
     ```
@@ -49,8 +47,8 @@ want to mine Zeeka, you will need to install ![zoro](https://github.com/zeeka-ne
     cargo install --path .
     ```
 
-Now if you want to join the `chaos` testnet, you first have to initialize your
-node. If you have already initialized bazuka for the Debug Testnet, you first need
+Now if you want to join the `groth` testnet, you first have to initialize your
+node. If you have already initialized bazuka in an old Testnet, you first need
 to remove your previous initialization by running:
 
 ```sh
@@ -60,27 +58,29 @@ rm ~/.bazuka.yaml
 Then initialize:
 
 ```sh
-bazuka init --seed [your seed phrase] --network chaos --node 127.0.0.1:8765
+bazuka init [flags...]
 ```
 
-(Example seed: `"A_RANDOM_STRING_THAT_IS_LONG_ENOUGH_783264dfhejfjcgefjkef"`)
+Available flags:
 
-The seed is a random string of characters, not mnemonic phrases. **You do not need to generate it using wallets! (E.g Metamask)**
-The longer the seed is, the safer. We suggest a seed string of at least 80 random characters. Your regular and zero-knowledge private-keys are derived from the `--seed` value, so **don't forget to keep them somewhere safe and do not share it**!
+ * `--bootstrap <bootstrap>...`: You can use the nodes introduced by the community as your bootstrap nodes through this flag. (E.g You can use  one of our nodes: `65.108.193.133:8765`)
+ * `--db <db>`: Path of the node's database. Default: `~/.bazuka`.
+ * `--external <external>`: Public ip/port of your node. Default: `YOUR_PUBLIC_IP:8765`.
+ * `--listen <listen>`: Local socket. Default: `0.0.0.0:8765`.
+ * `--mnemonic <mnemonic>`: If you already have a 12-word mnemonic phrase, you can pass it through this flag. If not provided, a new wallet will be generated for you. Keep the mnemonic word list somewhere safe!
+ * `--network <network>`: The network your node will operate on. Default: `mainnet`
 
-Run your node:
+Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the groth network:
+
+```
+bazuka init --network groth --bootstrap 65.108.193.133:8765
+```
+
+After initializing your node you can run it through:
 
 ```sh
-bazuka node --listen 0.0.0.0:8765 --external [your external ip]:8765 \
-  --network chaos --db ~/.bazuka-chaos \
-  --bootstrap [bootstrap node 1] --bootstrap [bootstrap node 2] \
-  --discord-handle [your username on discord server]
+bazuka node start --discord_handle "YOUR DISCORD HANDLE"
 ```
-
-You can use the nodes introduced by the community as your `--bootstrap` nodes.
-You either have to run your node on a machine with a static IP, or configure a NAT
-Virtual Server in order to expose your node on a public IP. Specify your public IP
-through the `--external` option.
 
 **IMPORTANT:** You are required to provide your Discord handle through the
 `--discord-handle` flag. By providing your handle, we will be able to authenticate
@@ -89,7 +89,7 @@ your node, as a part of rewarding process.
 ### What is the Main Payment Network?
 
 The Main Payment Network (MPN) is a special, builtin smart-contract that is
-created in the genesis-block of the Zeeka Protocol. It manages a merkle-tree of
+created in the genesis-block of the Ziesha Protocol. It manages a merkle-tree of
 millions of accounts that can transfer ℤ with each other with nearly zero-cost
 transactions. It uses the Groth16 proving system and has a fixed number of
 transaction slots per update.
@@ -98,7 +98,36 @@ transaction slots per update.
     <img width="400" src="https://user-images.githubusercontent.com/4275654/188954000-450b32ad-c5e8-4714-9664-3afa40400508.png" alt="Deposit/Withdraw/Rsend/Zsend">
 </p>
 
-### How to mine ℤeeka?
+### Mine Ziesha (In a mining pool!)
+
+You need to follow the steps:
+
+ 1. Find out your wallet-address by running `bazuka wallet`.
+ 2. Install/update `uzi-miner` on your system:
+    ```
+    git clone https://github.com/ziesha-network/uzi-miner
+    cd uzi-miner
+    cargo update
+    cargo install --path .
+    ```
+ 3. Provide your wallet-address to the pool owner. He will give you **Miner Token** in return, which should be passed to `uzi-miner`.
+ 4. Run uzi-miner with **--pool** flag:
+    ```
+    uzi-miner --pool --node IP_OF_THE_POOL:8766 --threads 32 --miner-token MINER_TOKEN
+    ```
+
+You will also need to have `uzi-miner` running on your system:
+
+   ```
+   git clone https://github.com/ziesha-network/uzi-miner
+   cd uzi-miner
+   cargo install --path .
+   uzi-miner --node 127.0.0.1:8765 --threads 32
+   ```
+
+   (Note: Change number of `--threads` based on the spec of your system)
+
+### Mine Ziesha (As a solo-miner!)
 
 In order to be a miner, besides working on a PoW puzzle, you will also need to
 execute the MPN contract on each block you generate. The `zoro` software is
@@ -115,8 +144,8 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    ```
 
    If you get a `DifferentGenesis` error, it means that the genesis block has changed
-   in the updated software. So you need to start fresh. Remove the `~/.bazuka-chaos`
-   folder by running: `rm -rf ~/.bazuka-chaos`
+   in the updated software. So you need to start fresh. Remove the `~/.bazuka`
+   folder by running: `rm -rf ~/.bazuka`
 
    Now run Bazuka again.
 
@@ -132,29 +161,25 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    Then:
 
    ```
-   git clone https://github.com/zeeka-network/zoro
+   git clone https://github.com/ziesha-network/zoro
    cd zoro
    cargo install --path .
    ```
 
 3. Download the proving parameters
 
-   - Payment parameters (~700MB): https://drive.google.com/file/d/1slabmFFr0Ct6fef09GOGHGqxYwB7YUMG/view?usp=sharing
-   - Update parameters (~6GB): https://drive.google.com/file/d/1iVD2bpywWGHLB4cgasuhTEZwXQoGa2bj/view?usp=sharing
-
-   Or if you want to download them through command-line:
-
    ```
-   wget https://api.rues.info/payment_params.dat -O payment_params.dat
-   wget https://api.rues.info/update_params.dat -O update_params.dat
+   wget https://api.rues.info/update.dat
+   wget https://api.rues.info/withdraw.dat
+   wget https://api.rues.info/deposit.dat
    ```
 
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
 
    ```sh
-   zoro --node 127.0.0.1:8765 --seed [seed phrase for the executor account] --network chaos \
-     --update-circuit-params [path to update_params.dat] --payment-circuit-params [path to payment_params.dat] \
-     --db $HOME/.bazuka-chaos --gpu
+   zoro --node 127.0.0.1:8765 --seed [seed phrase for the executor account] --network groth \
+     --update-circuit-params [path to update_params.dat] --deposit-circuit-params [path to deposit.dat] \
+     --withdraw-circuit-params [path to withdraw.dat] --db $HOME/.bazuka --gpu
    ```
 
    **Note:** You can switch to CPU by removing the `--gpu` flag, but your chances of mining a block
@@ -168,7 +193,7 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
   puzzle, so you will also need to have `uzi-miner` running on your system:
 
    ```
-   git clone https://github.com/zeeka-network/uzi-miner
+   git clone https://github.com/ziesha-network/uzi-miner
    cd uzi-miner
    cargo install --path .
    uzi-miner --node 127.0.0.1:8765 --threads 32
