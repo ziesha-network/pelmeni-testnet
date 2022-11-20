@@ -125,17 +125,7 @@ You need to follow the steps:
     ```
     uzi-miner --pool --node IP_OF_THE_POOL:8766 --threads 32 --miner-token MINER_TOKEN
     ```
-
-You will also need to have `uzi-miner` running on your system:
-
-   ```
-   git clone https://github.com/ziesha-network/uzi-miner
-   cd uzi-miner
-   cargo install --path .
-   uzi-miner --node 127.0.0.1:8765 --threads 32
-   ```
-
-   (Note: Change number of `--threads` based on the spec of your system)
+    (Note: Change number of `--threads` based on the spec of your system)
 
 ### Mine Ziesha (As a solo-miner!)
 
