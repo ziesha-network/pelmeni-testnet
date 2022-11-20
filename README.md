@@ -48,14 +48,14 @@ want to mine Ziesha, there are two roads:
     ```
 
 Now if you want to join the `groth` testnet, you first have to initialize your
-node. If you have already initialized bazuka in an old Testnet, you first need
+node. If you have already initialized bazuka in an older testnet, you first need
 to remove your previous initialization by running:
 
 ```sh
 rm ~/.bazuka.yaml
 ```
 
-Then initialize:
+***IMPORTANT!*** *If you have participated in the Chaos-Testnet, you should know that we have had breaking change on the way our wallet seeds work. From now on, you won't need to enter the seed yourself, a random 12-word mnemonic code will be generated for you instead! Therefore, the old seed you used in the Chaos-Testnet is not valid anymore and **can be thrown away**. We have tracked your node activity in the old network based on your Discord-id and Ip address, but in this testnet, you will be authenticated based on the wallet-address derived from you 12-word mnemonic phrase.*
 
 ```sh
 bazuka init [flags...]
@@ -73,8 +73,16 @@ Available flags:
 Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the groth network:
 
 ```
+bazuka init --network groth --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
+```
+
+If you don't have a mnemonic phrase and you would like `bazuka` to generate one for you:
+
+```
 bazuka init --network groth --bootstrap 65.108.193.133:8765
 ```
+
+***Make sure you write down the mnemonic phrase generated for you somewhere safe! All your rewards will go into this public-key, in the future mainnet!***
 
 After initializing your node you can run it through:
 
