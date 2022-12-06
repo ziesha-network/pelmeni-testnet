@@ -47,7 +47,7 @@ want to mine Ziesha, there are two roads:
     cargo install --path .
     ```
 
-Now if you want to join the `groth-5` testnet, you first have to initialize your
+Now if you want to join the `groth-6` testnet, you first have to initialize your
 node. If you have already initialized bazuka in an older testnet, you first need
 to remove your previous initialization by running:
 
@@ -70,16 +70,16 @@ Available flags:
  * `--mnemonic <mnemonic>`: If you already have a 12-word mnemonic phrase, you can pass it through this flag. If not provided, a new wallet will be generated for you. Keep the mnemonic word list somewhere safe!
  * `--network <network>`: The network your node will operate on. Default: `mainnet`
 
-Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the `groth-5` network:
+Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the `groth-6` network:
 
 ```
-bazuka init --network groth-5 --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
+bazuka init --network groth-6 --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
 ```
 
 If you don't have a mnemonic phrase and you would like `bazuka` to generate one for you:
 
 ```
-bazuka init --network groth-5 --bootstrap 65.108.193.133:8765
+bazuka init --network groth-6 --bootstrap 65.108.193.133:8765
 ```
 
 ***Make sure you write down the mnemonic phrase generated for you somewhere safe! All your rewards will go into this public-key, in the future mainnet!***
@@ -177,7 +177,7 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
 
    ```sh
-   zoro --node 127.0.0.1:8765 --seed "SEED PHRASE FOR THE EXECUTOR ACCOUNT" --network groth-5 \
+   zoro --node 127.0.0.1:8765 --seed "SEED PHRASE FOR THE EXECUTOR ACCOUNT" --network groth-6 \
      --update-circuit-params update.dat --deposit-circuit-params deposit.dat \
      --withdraw-circuit-params withdraw.dat --db $HOME/.bazuka --gpu
    ```
