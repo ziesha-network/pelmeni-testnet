@@ -5,6 +5,7 @@
  - Participants are required to keep themselves updated regarding the announcements published on our Discord and Twitter.
  - You have to update your node software when asked. Outdated nodes will not receive their rewards.
  - During the testnet, we may be required to resync our nodes or restart building blocks from height 0. Do not panic! We will keep track of all participants' contribution even after fresh starts!
+ - ***IMPORTANT! YOU WILL NEED TO WITHDRAW YOUR FUNDS FROM YOUR MPN ACCOUNT TO YOUR MAIN-CHAIN ADDRESS IN THE END OF THE TESTNET, OTHERWISE YOU WILL NOT GET YOUR REWARDS!***
 
 ### How to run a Bazuka node?
 
