@@ -174,7 +174,7 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
 
    ```sh
-   zoro --node 127.0.0.1:8765 --seed "SOME RANDOM STRING" \
+   zoro start --node 127.0.0.1:8765 --seed "SOME RANDOM STRING" \
      --update-circuit-params update_params.dat --deposit-circuit-params deposit_params.dat \
      --withdraw-circuit-params withdraw_params.dat --db $HOME/.bazuka --gpu
    ```
