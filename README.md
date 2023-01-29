@@ -2,7 +2,7 @@
 
 ### Rules
 
- - Participants must follow our pages on [Discord](https://discord.gg/zieshanetwork), [Telegram](https://t.me/ZieshaNetworkOfficial) and [Twitter](https://twitter.com/ZieshaNetwork) and be aware of announcements published.
+ - Participants must follow our pages on our [Discord](https://discord.gg/zieshanetwork), [Telegram](https://t.me/ZieshaNetworkOfficial) and [Twitter](https://twitter.com/ZieshaNetwork) and be aware of announcements published.
  - You have to update your node software when asked. Outdated nodes will not receive their rewards.
  - During the testnet, we may be required to resync our nodes or restart building blocks from height 0. Do not panic! We will keep track of all participants' contribution even after fresh starts!
  - ***IMPORTANT! YOU WILL NEED TO WITHDRAW YOUR FUNDS FROM YOUR MPN ACCOUNT TO YOUR MAIN-CHAIN ADDRESS IN THE END OF THE TESTNET, OTHERWISE YOU WILL NOT GET YOUR REWARDS!***
