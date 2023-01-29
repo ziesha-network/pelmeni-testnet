@@ -1,10 +1,9 @@
-# ℤ - The Groth Testnet!
+# ℤ - The [X] Testnet!
 
 ### Rules
 
  - Participants are required to keep themselves updated regarding the announcements published on our Discord and Twitter.
  - You have to update your node software when asked. Outdated nodes will not receive their rewards.
- - In order to control the height progress of the testnet, we have put a hard-coded height limit on our software. The height limit is currently set to: **43200** blocks (About one month).
  - During the testnet, we may be required to resync our nodes or restart building blocks from height 0. Do not panic! We will keep track of all participants' contribution even after fresh starts!
 
 ### How to run a Bazuka node?
@@ -47,15 +46,14 @@ want to mine Ziesha, there are two roads:
     cargo install --path .
     ```
 
-Now if you want to join the `groth-6` testnet, you first have to initialize your
+Now if you want to join the `debug` testnet, you first have to initialize your
 node. If you have already initialized bazuka in an older testnet, you first need
 to remove your previous initialization by running:
 
 ```sh
-rm ~/.bazuka.yaml
+rm -rf ~/.bazuka ~/.bazuka-wallet ~/.bazuka.yaml ~/.uzi-pool-history ~/.uzi-pool-miners
 ```
-
-***IMPORTANT!*** *If you have participated in the Chaos-Testnet, you should know that we have had breaking change on the way our wallet seeds work. From now on, you won't need to enter the seed yourself, a random 12-word mnemonic code will be generated for you instead! Therefore, the old seed you used in the Chaos-Testnet is not valid anymore and **can be thrown away**. We have tracked your node activity in the old network based on your Discord-id and Ip address, but in this testnet, you will be authenticated based on the wallet-address derived from you 12-word mnemonic phrase.*
+Then initialize:
 
 ```sh
 bazuka init [flags...]
@@ -70,16 +68,16 @@ Available flags:
  * `--mnemonic <mnemonic>`: If you already have a 12-word mnemonic phrase, you can pass it through this flag. If not provided, a new wallet will be generated for you. Keep the mnemonic word list somewhere safe!
  * `--network <network>`: The network your node will operate on. Default: `mainnet`
 
-Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the `groth-6` network:
+Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the `debug` network:
 
 ```
-bazuka init --network groth-6 --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
+bazuka init --network debug --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
 ```
 
 If you don't have a mnemonic phrase and you would like `bazuka` to generate one for you:
 
 ```
-bazuka init --network groth-6 --bootstrap 65.108.193.133:8765
+bazuka init --network debug --bootstrap 65.108.193.133:8765
 ```
 
 ***Make sure you write down the mnemonic phrase generated for you somewhere safe! All your rewards will go into this public-key, in the future mainnet!***
@@ -166,20 +164,18 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    cargo install --path .
    ```
 
-3. Download the proving parameters
+3. Generate the proving parameters (Note: You will need 64GB of memory in order to generate parameters! If your RAM is 32GB, try adding another 32GB of swap space!)
 
    ```
-   wget https://api.rues.info/update.dat
-   wget https://api.rues.info/withdraw.dat
-   wget https://api.rues.info/deposit.dat
+   zoro generate-params
    ```
 
 4. Run `zoro` beside your node: (This will use your Nvidia GPU for mining!)
 
    ```sh
-   zoro --node 127.0.0.1:8765 --seed "SEED PHRASE FOR THE EXECUTOR ACCOUNT" --network groth-6 \
-     --update-circuit-params update.dat --deposit-circuit-params deposit.dat \
-     --withdraw-circuit-params withdraw.dat --db $HOME/.bazuka --gpu
+   zoro --node 127.0.0.1:8765 --seed "SOME RANDOM STRING" \
+     --update-circuit-params update_params.dat --deposit-circuit-params deposit_params.dat \
+     --withdraw-circuit-params withdraw_params.dat --db $HOME/.bazuka --gpu
    ```
 
    **Note:** You can switch to CPU by removing the `--gpu` flag, but your chances of mining a block
@@ -188,6 +184,8 @@ competitive CPU. (In future versions, GPU will be used instead of CPU)
    (Note: The seed phrase for the executor account needs to be different from the
    seed you use for your node! The transaction fees of the Zero transactions processed
    by your executor will go to this account)
+   
+   ***NOTE: YOUR PROVING TIME MUST BE AROUND 30-40S IN ORDER TO BE COMPETETIVE!***
 
 5. After a new block is generated, the `uzi-miner` should start working on the PoW
   puzzle, so you will also need to have `uzi-miner` running on your system:
