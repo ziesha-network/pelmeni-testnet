@@ -1,4 +1,4 @@
-# ℤ - The [X] Testnet!
+# ℤ - The Pelmeni Testnet!
 
 ### Rules
 
@@ -47,7 +47,7 @@ want to mine Ziesha, there are two roads:
     cargo install --path .
     ```
 
-Now if you want to join the `debug` testnet, you first have to initialize your
+Now if you want to join the `pelmeni` testnet, you first have to initialize your
 node. If you have already initialized bazuka in an older testnet, you first need
 to remove your previous initialization by running:
 
@@ -69,16 +69,16 @@ Available flags:
  * `--mnemonic <mnemonic>`: If you already have a 12-word mnemonic phrase, you can pass it through this flag. If not provided, a new wallet will be generated for you. Keep the mnemonic word list somewhere safe!
  * `--network <network>`: The network your node will operate on. Default: `mainnet`
 
-Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the `debug` network:
+Example to initialize a node with 2 bootstrap nodes `65.108.193.133:8765` on the `pelmeni` network:
 
 ```
-bazuka init --network debug --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
+bazuka init --network pelmeni --bootstrap 65.108.193.133:8765 --mnemonic "YOUR OLD MNEMONIC PHRASE"
 ```
 
 If you don't have a mnemonic phrase and you would like `bazuka` to generate one for you:
 
 ```
-bazuka init --network debug --bootstrap 65.108.193.133:8765
+bazuka init --network pelmeni --bootstrap 65.108.193.133:8765
 ```
 
 ***Make sure you write down the mnemonic phrase generated for you somewhere safe! All your rewards will go into this public-key, in the future mainnet!***
